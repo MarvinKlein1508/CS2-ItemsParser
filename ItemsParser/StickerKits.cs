@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 namespace ItemsParser;
 public static class StickerKits
 {
-    private static string _items_game;
-    private static List<string> _stickerKitBlocks;
-    private static List<StickerKit> _stickerKits = [];
+    private static readonly string _items_game;
+    private static readonly List<string> _stickerKitBlocks;
+    private static readonly List<StickerKit> _stickerKits = [];
     static StickerKits()
     {
         string filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "items_game.txt");
