@@ -57,18 +57,20 @@ public static class StickerKits
                 _ => ItemRarity.Unknown,
             };
 
+
+
+            int index = item.StickerMaterial.IndexOf('/');
+            string collection = item.StickerMaterial[..index];
+
             Sticker sticker = new()
             {
                 Name = stickerName,
                 Rarity = rarity,
                 StickerId = item.Id,
-                Image = "/assets/img/items/stickers/",
-                Collection = item.StickerMaterial,
+                Image = $"/assets/img/items/stickers/{item.StickerMaterial}_png.png",
+                Collection = collection,
                 BuffStickerId = null,
             };
-
-            int index = item.StickerMaterial.IndexOf('/');
-            string collection = item.StickerMaterial[..index];
 
             if (stickerCollections.TryGetValue(collection, out List<Sticker>? value))
             {
